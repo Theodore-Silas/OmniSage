@@ -70,7 +70,6 @@ DEEPSEEK_MODEL=deepseek-chat
 OBSIDIAN_VAULT_PATH=/path/to/your/obsidian/vault
 ```
 
-> ⚠️ `.env` 含密钥，已被 `.gitignore` 忽略，请勿提交到仓库。
 
 ### 运行
 
