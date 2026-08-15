@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>简历 · Agent 开发工程师</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --muted: #555;
+    --line: #e2e2e2;
+    --accent: #0b5cad;
+    --bg: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", -apple-system, "Segoe UI", sans-serif;
+    color: var(--ink);
+    background: #f4f5f7;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    max-width: 820px;
+    margin: 24px auto;
+    background: var(--bg);
+    padding: 48px 56px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.08);
+    border-radius: 6px;
+  }
+  header { text-align: center; margin-bottom: 20px; }
+  h1 { font-size: 26px; letter-spacing: 1px; font-weight: 700; }
+  .subtitle { color: var(--accent); font-size: 15px; margin-top: 4px; font-weight: 600; }
+  .contact { color: var(--muted); font-size: 13px; margin-top: 8px; }
+  .contact span { margin: 0 6px; }
+  h2 {
+    font-size: 15px; margin: 22px 0 8px; padding-bottom: 5px;
+    border-bottom: 1.5px solid var(--ink); letter-spacing: 2px;
+  }
+  h3 { font-size: 15px; margin: 0 0 6px; }
+  .star-block { font-size: 13.5px; margin: 5px 0; }
+  .star-block .k { font-weight: 700; color: var(--accent); display: inline-block; min-width: 22px; }
+  .star-tag {
+    display: inline-block; font-weight: 700; font-size: 11px; color: #fff;
+    background: var(--accent); border-radius: 3px; padding: 0 5px; margin-right: 6px; vertical-align: 1px;
+  }
+  .tech-tag {
+    display: inline-block; background: #eef3fa; color: var(--accent);
+    border-radius: 4px; padding: 1px 8px; margin: 0 4px 4px 0;
+    font-size: 12.5px; font-family: "SF Mono", Consolas, monospace;
+  }
+  .tech-point { margin: 14px 0 4px; font-weight: 700; }
+  .tech-point b { color: var(--accent); }
+  .bullet { position: relative; padding-left: 16px; margin: 4px 0; font-size: 13.5px; }
+  .bullet::before { content: "—"; position: absolute; left: 0; color: var(--accent); }
+  .metric { color: var(--accent); font-weight: 600; }
+  .skills li { font-size: 13.5px; margin: 3px 0; }
+  .skills b { display: inline-block; min-width: 88px; }
+  .note { font-size: 11.5px; color: #999; margin-top: 18px; border-top: 1px dashed var(--line); padding-top: 8px; }
+  .placeholder { color: #b8860b; background: #fff8e6; padding: 0 4px; border-radius: 3px; }
+  @media print {
+    body { background: #fff; }
+    .page { box-shadow: none; margin: 0; max-width: none; border-radius: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <h1><span class="placeholder">[姓名]</span></h1>
+    <div class="subtitle">Agent 开发工程师 · 校招 · 技术方向</div>
+    <div class="contact">
+      <span>电话：<span class="placeholder">[电话待填写]</span></span>
+      <span>邮箱：<span class="placeholder">[邮箱待填写]</span></span>
+      <span>意向城市：<span class="placeholder">[城市待填写]</span></span>
+    </div>
+  </header>
+
+  <h2>项目经历</h2>
+  <h3>SearchAgent —— 本地命中优先的多知识库搜索问答 Agent</h3>
+
+  <div class="star-block"><span class="star-tag">S</span><span class="k">情境</span>知识问答场景中，多源搜索每次都要多次网络请求 + 多次 LLM 调用，重复问题反复搜索、成本难控；多源全文直接喂大模型会撑爆上下文窗口、稀释关键信息。</div>
+  <div class="star-block"><span class="star-tag">T</span><span class="k">任务</span>设计并实现一个「本地命中优先、外部搜索兜底」的搜索问答 Agent，在保证答案质量的前提下控制 token 成本与响应时延，并让系统越用越省。</div>
+
+  <div class="star-block" style="margin-top:8px;">
+    <span class="k">技术栈：</span>
+    <span class="tech-tag">Python</span>
+    <span class="tech-tag">LangGraph</span>
+    <span class="tech-tag">DeepSeek (LLM)</span>
+    <span class="tech-tag">RAG</span>
+    <span class="tech-tag">FAISS</span>
+    <span class="tech-tag">asyncio</span>
+    <span class="tech-tag">Streamlit</span>
+  </div>
+
+  <div class="star-block" style="margin-top:8px;"><span class="star-tag">A</span><span class="k">行动</span>／<span class="star-tag">R</span><span class="k">结果</span> —— 三大技术点，均按 STAR 展开：</div>
+
+  <div class="tech-point">① <b>长上下文管理</b></div>
+  <div class="bullet"><span class="k">S</span> 四源检索最多返回约 <span class="metric">3.2 万字</span>，直接喂 LLM 撑爆窗口、推高 token 成本。</div>
+  <div class="bullet"><span class="k">A</span> 设计四层机制——Map-Reduce 分层压缩（Map 分源独立总结 ≤800 token → Reduce 跨源合成 ≤2000 token）、分级截断（摘要 300 / 正文 4000 / 每源 8000 字）、Top-K 数量控制（每源 5 → 融合排序 Top-10 → 抓取 Top-5）、Token 预算。</div>
+  <div class="bullet"><span class="k">R</span> 压缩比约 <span class="metric">16:1</span>（3.2 万字 → 约 3200 token 摘要 → ≤2000 token 答案），单次 LLM 输入严格控在预算内。</div>
+
+  <div class="tech-point">② <b>RAG 多知识库检索增强</b></div>
+  <div class="bullet"><span class="k">S</span> 本地知识分散在 Wiki / Obsidian / 腾讯文档 / 历史问答多个源，缺少统一检索与语义增强。</div>
+  <div class="bullet"><span class="k">A</span> 抽象知识库连接器（KnowledgeBaseConnector）统一接入四类知识源、命中源可插拔；FAISS（all-MiniLM-L6-v2，384 维）做语义检索，中文用字符 2-gram（免分词）提升召回；未命中时四源并行搜索 + URL 去重 + BM25/语义混合排序（6:3:1）。</div>
+  <div class="bullet"><span class="k">R</span> 答案带完整引用来源；每次搜索结果归档 Wiki、写入 FAISS 记忆，形成「越用越聪明」的正循环。</div>
+
+  <div class="tech-point">③ <b>Agent 编排与两级路由</b></div>
+  <div class="bullet"><span class="k">S</span> 重复问题每次都走完整搜索链路，既慢又贵，缺少统一的编排与路由控制。</div>
+  <div class="bullet"><span class="k">A</span> 用 LangGraph 状态机编排全链路，<code>conditional_edges</code> 驱动命中优先的两级路由——第一级先查本地多知识库（FAISS 向量记忆 → Wiki/Obsidian/腾讯文档，按相似度 + 充分性分级判定），命中充分直接回答；第二级未命中/内容不足才切到外部四源搜索（网页/论文/新闻/博客）→ Map-Reduce 总结 → 写回知识库。</div>
+  <div class="bullet"><span class="k">R</span> 命中路径 <span class="metric">0 次</span> LLM 调用、首答 <span class="metric">98ms</span>（缓存 <span class="metric">1ms</span>）；搜索路径 <span class="metric">5 次</span> LLM 调用、秒级——成本降低 <span class="metric">100%</span>，重复问题命中率 <span class="metric">0% → 100%</span>。</div>
+
+  <h2>技能</h2>
+  <ul class="skills">
+    <li><b>编程语言</b> Python</li>
+    <li><b>Agent 框架</b> LangGraph</li>
+    <li><b>大模型</b> DeepSeek（OpenAI 兼容）、Prompt Engineering</li>
+    <li><b>检索增强</b> RAG、FAISS 向量检索、BM25/语义混合排序</li>
+    <li><b>其他</b> asyncio 并发、Streamlit、单元测试</li>
+  </ul>
+
+  <div class="note">指标来源：本地命中耗时、LLM 调用次数、命中率、压缩比由 benchmarks/benchmark.py 模拟测试得出，可复现。橙色高亮为占位符，投递前请替换真实信息。</div>
+</div>
+</body>
+</html>

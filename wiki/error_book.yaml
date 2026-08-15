@@ -1,0 +1,80 @@
+entries:
+- constraint: 'Every page MUST include: summary blockquote, Key Facts section, and
+    Sources section'
+  description: 'Missing sections: summary (blockquote), Key Facts'
+  discovered: '2026-08-07T00:43:23Z'
+  fix_count: 0
+  id: err-001
+  key: queries/2026-08-07-python-langgraph-tutorial.md|incomplete-page
+  page: queries/2026-08-07-python-langgraph-tutorial.md
+  root_cause: Summary generation did not include all required sections
+  severity: warning
+  status: constrained
+  type: incomplete-page
+  verified_at: ''
+- constraint: NEVER create a wikilink [[...]] unless the target page is explicitly
+    listed in index.md
+  description: Link [[https://realpython.com/langgraph-python/]] points to non-existent
+    page
+  discovered: '2026-08-07T00:43:23Z'
+  fix_count: 0
+  id: err-003
+  key: sources/2026-08-07-python-langgraph-tutorial-src-1.md|dangling-link
+  page: sources/2026-08-07-python-langgraph-tutorial-src-1.md
+  root_cause: LLM generated a wikilink to a non-existent page during summarization
+  severity: warning
+  status: constrained
+  type: dangling-link
+  verified_at: ''
+- constraint: 'Every page MUST include: summary blockquote, Key Facts section, and
+    Sources section'
+  description: 'Missing sections: summary (blockquote)'
+  discovered: '2026-08-07T00:43:23Z'
+  fix_count: 0
+  id: err-005
+  key: sources/2026-08-07-python-langgraph-tutorial-src-1.md|incomplete-page
+  page: sources/2026-08-07-python-langgraph-tutorial-src-1.md
+  root_cause: Summary generation did not include all required sections
+  severity: warning
+  status: constrained
+  type: incomplete-page
+  verified_at: ''
+- constraint: NEVER create a wikilink [[...]] unless the target page is explicitly
+    listed in index.md
+  description: Link [[http://arxiv.org/abs/2605.04999v2]] points to non-existent page
+  discovered: '2026-08-07T00:43:23Z'
+  fix_count: 0
+  id: err-007
+  key: sources/2026-08-07-python-langgraph-tutorial-src-2.md|dangling-link
+  page: sources/2026-08-07-python-langgraph-tutorial-src-2.md
+  root_cause: LLM generated a wikilink to a non-existent page during summarization
+  severity: warning
+  status: constrained
+  type: dangling-link
+  verified_at: ''
+- constraint: 'Every page MUST include: summary blockquote, Key Facts section, and
+    Sources section'
+  description: 'Missing sections: summary (blockquote)'
+  discovered: '2026-08-07T00:43:23Z'
+  fix_count: 0
+  id: err-009
+  key: sources/2026-08-07-python-langgraph-tutorial-src-2.md|incomplete-page
+  page: sources/2026-08-07-python-langgraph-tutorial-src-2.md
+  root_cause: Summary generation did not include all required sections
+  severity: warning
+  status: constrained
+  type: incomplete-page
+  verified_at: ''
+- constraint: When creating a new page, also update at least one existing related
+    page to add a wikilink to the new page
+  description: No other pages link to this page
+  discovered: '2026-08-07T00:43:23Z'
+  fix_count: 0
+  id: err-011
+  key: queries/2026-08-07-python-langgraph-tutorial.md|orphan-page
+  page: queries/2026-08-07-python-langgraph-tutorial.md
+  root_cause: New page was created but no existing pages were updated to link to it
+  severity: warning
+  status: constrained
+  type: orphan-page
+  verified_at: ''

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>Browser Agent Demo</title>
+<style>
+  body { font-family: sans-serif; margin: 40px; }
+  input { padding: 8px; width: 240px; }
+  button { padding: 8px 16px; cursor: pointer; }
+  #result { margin-top: 16px; color: #333; }
+</style>
+</head>
+<body>
+  <h1>搜索演示页</h1>
+  <input id="search-input" placeholder="输入关键词" />
+  <button id="search-btn" onclick="doSearch()">搜索</button>
+  <div id="result"></div>
+  <script>
+    function doSearch() {
+      var q = document.getElementById('search-input').value;
+      var r = document.getElementById('result');
+      if (q) {
+        r.innerHTML = '搜索结果：找到 <b>3</b> 条关于「' + q + '」的记录';
+      } else {
+        r.innerHTML = '请输入关键词';
+      }
+    }
+  </script>
+</body>
+</html>
